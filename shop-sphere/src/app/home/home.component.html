@@ -1,0 +1,43 @@
+<div class="home-container">
+    <!-- Hero Slider -->
+    <swiper-container
+      init="false"
+      navigation="true"
+      pagination="true"
+      autoplay-delay="5000"
+      class="hero-slider">
+      <swiper-slide *ngFor="let slide of slides">
+        <div class="slide-content" [ngStyle]="{'background-image': 'url(' + slide.image + ')'}">
+          <div class="slide-text">
+            <h2>{{slide.title}}</h2>
+            <p>{{slide.subtitle}}</p>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  
+    <!-- Category Sections -->
+    <div class="categories-container">
+      <!-- Men's Category -->
+      <div class="category-card men">
+        <div class="category-content">
+          <h2>MEN'S<br>FASHION</h2>
+          <p>New & Fresh collection<br>arrival in believe store</p>
+          <button mat-raised-button color="primary" (click)="navigateToCategory('men')">
+            SHOP NOW
+          </button>
+        </div>
+      </div>
+  
+      <!-- Women's Category -->
+      <div class="category-card women">
+        <div class="category-content">
+          <h2>WOMEN'S<br>FASHION</h2>
+          <p>New & Fresh collection<br>arrival in believe store</p>
+          <button mat-raised-button color="accent" (click)="navigateToCategory('women')">
+            SHOP NOW
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

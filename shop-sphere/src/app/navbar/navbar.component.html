@@ -1,0 +1,26 @@
+<mat-toolbar class="navbar">
+    <div class="navbar-brand">
+      <a routerLink="/">
+        <img src="brandlogo.jpeg" alt="ShopSphere" class="logo">
+        <!-- <span class="tagline">Everything You Need, All in One Sphere.</span> -->
+      </a>
+    </div>
+  
+    <div class="navbar-links">
+      <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a mat-button routerLink="/products" routerLinkActive="active">Products</a>
+      <a mat-button routerLink="/categories" routerLinkActive="active">Categories</a>
+      <a mat-button routerLink="/orders" routerLinkActive="active">My Orders</a>
+    </div>
+  
+    <div class="navbar-actions">
+      <button mat-icon-button class="search-btn">
+        <mat-icon>search</mat-icon>
+      </button>
+      <button mat-icon-button class="cart-btn" (click)="navigateToCart()">
+        <mat-icon matBadge="0" matBadgeColor="warn">shopping_cart</mat-icon>
+      </button>
+      <a mat-button routerLink="/login">Login</a>
+      <a mat-raised-button color="primary" routerLink="/register">Register</a>
+    </div>
+  </mat-toolbar>

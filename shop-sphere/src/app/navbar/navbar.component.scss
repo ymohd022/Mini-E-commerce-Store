@@ -1,0 +1,63 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 70px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+      }
+  
+      .logo {
+        height: 40px;
+        margin-right: 1rem;
+      }
+  
+      .tagline {
+        font-size: 0.8rem;
+        color: #666;
+        margin-left: 0.5rem;
+      }
+    }
+  
+    .navbar-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+  
+      a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        
+        &.active {
+          color: #1976d2;
+        }
+      }
+    }
+  
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+  
+      .search-btn, .cart-btn {
+        margin: 0 0.5rem;
+      }
+  
+      .mat-badge-content {
+        font-size: 10px;
+      }
+    }
+  }

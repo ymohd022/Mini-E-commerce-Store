@@ -1,0 +1,121 @@
+.home-container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+  
+  // Hero Slider Styles
+  .hero-slider {
+    height: 600px;
+    width: 100%;
+  
+    .slide-content {
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+  
+      .slide-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  
+        h2 {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+        }
+  
+        p {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+  
+  // Category Sections Styles
+  .categories-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    margin-top: 2rem;
+  
+    .category-card {
+      height: 600px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease;
+  
+      &:hover {
+        transform: scale(1.02);
+      }
+  
+      &.men {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url('/assets/images/men-category.jpg');
+      }
+  
+      &.women {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url('/assets/images/women-category.jpg');
+      }
+  
+      .category-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        width: 80%;
+  
+        h2 {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+          line-height: 1.2;
+  
+          &:first-line {
+            color: #64B5F6;  // For men's section
+          }
+        }
+  
+        .women & h2:first-line {
+          color: #EC407A;  // For women's section
+        }
+  
+        p {
+          margin-bottom: 2rem;
+          font-size: 1.1rem;
+          line-height: 1.5;
+        }
+  
+        button {
+          padding: 0.8rem 2rem;
+          font-size: 1.1rem;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .categories-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .hero-slider {
+      height: 400px;
+    }
+  
+    .category-card {
+      height: 400px;
+    }
+  }
