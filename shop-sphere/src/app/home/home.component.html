@@ -115,8 +115,8 @@
         <div class="product-info">
           <h3>{{product.name}}</h3>
           <div class="price">
-            <span class="current-price">${{product.currentPrice}}</span>
-            <span class="original-price" *ngIf="product.originalPrice">${{product.originalPrice}}</span>
+            <span class="current-price">₹{{product.currentPrice}}</span>
+            <span class="original-price" *ngIf="product.originalPrice">₹{{product.originalPrice}}</span>
           </div>
           <div class="rating">
             <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
