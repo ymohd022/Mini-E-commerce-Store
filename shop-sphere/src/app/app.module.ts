@@ -7,10 +7,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { register } from 'swiper/element/bundle';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { ProductsComponent } from './products/products.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 // Register Swiper custom elements
 register();
@@ -19,7 +23,9 @@ register();
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ProductsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

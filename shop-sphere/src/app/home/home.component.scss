@@ -1,121 +1,470 @@
 .home-container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+// Hero Slider Styles
+.hero-slider {
+  height: 600px;
+  width: 100%;
+
+  .slide-content {
+    height: 100%;
     width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    .slide-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
   }
-  
-  // Hero Slider Styles
-  .hero-slider {
-    height: 600px;
-    width: 100%;
-  
-    .slide-content {
-      height: 100%;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-  
-      .slide-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  
-        h2 {
-          font-size: 3rem;
-          margin-bottom: 1rem;
+}
+
+// Features Section Styles
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  margin-bottom: 2rem;
+
+  .feature-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+
+      .feature-icon {
+        background-color: #007bff;
+        img {
+          filter: brightness(0) invert(1);
         }
-  
-        p {
-          font-size: 1.5rem;
+      }
+
+      h3 {
+        color: #007bff;
+      }
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background-color: #e9ecef;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      transition: all 0.3s ease;
+
+      img {
+        width: 40px;
+        height: 40px;
+        transition: all 0.3s ease;
+      }
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #343a40;
+      transition: color 0.3s ease;
+    }
+
+    p {
+      color: #6c757d;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+}
+
+// Category Sections Styles
+.categories-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  margin-top: 2rem;
+
+  .category-card {
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    &.men {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('/men.jpg');
+    }
+
+    &.women {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('/women.jpg');
+    }
+
+    .category-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      width: 80%;
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+
+        &:first-line {
+          color: #64B5F6;  // For men's section
+        }
+      }
+
+      .women & h2:first-line {
+        color: #EC407A;  // For women's section
+      }
+
+      p {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+
+      button {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+// Partners Section Styles
+.partners-section {
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  text-align: center;
+  margin: 2rem 0;
+
+  h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 3rem;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: #007bff;
+    }
+  }
+
+  .partners-slider {
+    padding: 1rem;
+    
+    .partner-logo {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      
+      img {
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: all 0.3s ease;
+      }
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        
+        img {
+          filter: grayscale(0%);
+          opacity: 1;
         }
       }
     }
   }
+}
+// Featured Products Section
+.featured-products {
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
   
-  // Category Sections Styles
-  .categories-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding: 2rem;
-    margin-top: 2rem;
-  
-    .category-card {
-      height: 600px;
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 2rem;
       position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.3s ease;
-  
-      &:hover {
-        transform: scale(1.02);
-      }
-  
-      &.men {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url('/assets/images/men-category.jpg');
-      }
-  
-      &.women {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url('/assets/images/women-category.jpg');
-      }
-  
-      .category-content {
+      display: inline-block;
+      
+      &::after {
+        content: '';
         position: absolute;
-        top: 50%;
+        bottom: -10px;
         left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white;
-        width: 80%;
-  
-        h2 {
-          font-size: 2.5rem;
-          margin-bottom: 1rem;
-          line-height: 1.2;
-  
-          &:first-line {
-            color: #64B5F6;  // For men's section
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: #2196F3;
+      }
+    }
+  }
+
+  .category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    
+    button {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      background: none;
+      color: #666;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #2196F3;
+        transition: width 0.3s;
+      }
+      
+      &:hover, &.active {
+        color: #2196F3;
+        
+        &::after {
+          width: 80%;
+        }
+      }
+    }
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+      
+      &:hover {
+        transform: translateY(-5px);
+        
+        .product-actions {
+          opacity: 1;
+        }
+      }
+      
+      .product-image {
+        position: relative;
+        padding-top: 100%;
+        overflow: hidden;
+        
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s;
+        }
+        
+        .discount-badge {
+          position: absolute;
+          top: 1rem;
+          left: 1rem;
+          background-color: #ff4081;
+          color: white;
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          font-size: 0.875rem;
+          font-weight: 500;
+        }
+        
+        .product-actions {
+          position: absolute;
+          bottom: 1rem;
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;
+          gap: 0.5rem;
+          opacity: 0;
+          transition: opacity 0.3s;
+          
+          .action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            
+            &:hover {
+              background-color: #2196F3;
+              color: white;
+            }
           }
         }
-  
-        .women & h2:first-line {
-          color: #EC407A;  // For women's section
-        }
-  
-        p {
-          margin-bottom: 2rem;
+      }
+      
+      .product-info {
+        padding: 1.5rem;
+        
+        h3 {
           font-size: 1.1rem;
-          line-height: 1.5;
+          color: #333;
+          margin-bottom: 0.5rem;
         }
-  
-        button {
-          padding: 0.8rem 2rem;
-          font-size: 1.1rem;
-          letter-spacing: 1px;
+        
+        .price {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin-bottom: 0.5rem;
+          
+          .current-price {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2196F3;
+          }
+          
+          .original-price {
+            color: #999;
+            text-decoration: line-through;
+          }
+        }
+        
+        .rating {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          
+          i {
+            color: #ffc107;
+          }
+          
+          span {
+            color: #666;
+            font-size: 0.875rem;
+          }
         }
       }
     }
   }
-  
-  @media (max-width: 768px) {
-    .categories-container {
-      grid-template-columns: 1fr;
+}
+
+@media (max-width: 768px) {
+  .features-container {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+
+  .categories-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-slider {
+    height: 400px;
+  }
+
+  .category-card {
+    height: 400px;
+  }
+}
+@media (max-width: 768px) {
+  .partners-section {
+    padding: 2rem 1rem;
+    
+    h2 {
+      font-size: 2rem;
     }
-  
-    .hero-slider {
-      height: 400px;
-    }
-  
-    .category-card {
-      height: 400px;
+    
+    .partner-logo {
+      height: 100px;
     }
   }
+}
+@media (max-width: 768px) {
+  .featured-products {
+    padding: 2rem 1rem;
+    
+    .category-tabs {
+      flex-wrap: wrap;
+      
+      button {
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}

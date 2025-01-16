@@ -1,43 +1,129 @@
 <div class="home-container">
-    <!-- Hero Slider -->
+  <!-- Category Sections -->
+  <div class="categories-container">
+    <!-- Men's Category -->
+    <div class="category-card men">
+      <div class="category-content">
+        <h2>MEN'S<br>FASHION</h2>
+        <p>New & Fresh collection<br>arrival in believe store</p>
+        <button mat-raised-button color="primary" (click)="navigateToCategory('men')">
+          SHOP NOW
+        </button>
+      </div>
+    </div>
+
+    <!-- Women's Category -->
+    <div class="category-card women">
+      <div class="category-content">
+        <h2>WOMEN'S<br>FASHION</h2>
+        <p>New & Fresh collection<br>arrival in believe store</p>
+        <button mat-raised-button color="accent" (click)="navigateToCategory('women')">
+          SHOP NOW
+        </button>
+      </div>
+    </div>
+  </div>
+   <!-- Hero Slider -->
+   <swiper-container
+   init="false"
+   navigation="true"
+   pagination="true"
+   autoplay-delay="5000"
+   class="hero-slider">
+   <swiper-slide *ngFor="let slide of slides">
+     <div class="slide-content" [ngStyle]="{'background-image': 'url(' + slide.image + ')'}">
+       <div class="slide-text">
+         <h2>{{slide.title}}</h2>
+         <p>{{slide.subtitle}}</p>
+       </div>
+     </div>
+   </swiper-slide>
+ </swiper-container>
+  <!-- Features Section -->
+  <div class="features-container">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <img src="shipping.png" alt="Free shipping">
+      </div>
+      <h3>Free shipping</h3>
+      <p>Enjoy the convenience of free shipping on all your orders, no matter where you are. We are committed to delivering your favorite products right to your doorstep, ensuring a seamless shopping experience every time.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <img src="money-back.png" alt="Money back">
+      </div>
+      <h3>100% Money back</h3>
+      <p>Shop with confidence knowing that your satisfaction is our priority. If you’re not completely happy with your purchase, we offer a hassle-free 100% money-back guarantee, making sure your shopping experience is risk-free.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <img src="support.png" alt="Online support">
+      </div>
+      <h3>Online support 24/7</h3>
+      <p>Need help at any time? Our dedicated support team is available 24/7 to assist you with all your queries and concerns. Connect with us whenever you need, and we’ll ensure you have the best shopping experience.</p>
+    </div>
+  </div>
+  <div class="partners-section">
+    <h2>BRANDS</h2>
     <swiper-container
       init="false"
-      navigation="true"
-      pagination="true"
-      autoplay-delay="5000"
-      class="hero-slider">
-      <swiper-slide *ngFor="let slide of slides">
-        <div class="slide-content" [ngStyle]="{'background-image': 'url(' + slide.image + ')'}">
-          <div class="slide-text">
-            <h2>{{slide.title}}</h2>
-            <p>{{slide.subtitle}}</p>
-          </div>
+      class="partners-slider"
+      slides-per-view="4"
+      space-between="30"
+      autoplay-delay="3000"
+      loop="true">
+      <swiper-slide *ngFor="let partner of partners">
+        <div class="partner-logo">
+          <img [src]="partner.logo" [alt]="partner.name">
         </div>
       </swiper-slide>
     </swiper-container>
-  
-    <!-- Category Sections -->
-    <div class="categories-container">
-      <!-- Men's Category -->
-      <div class="category-card men">
-        <div class="category-content">
-          <h2>MEN'S<br>FASHION</h2>
-          <p>New & Fresh collection<br>arrival in believe store</p>
-          <button mat-raised-button color="primary" (click)="navigateToCategory('men')">
-            SHOP NOW
-          </button>
-        </div>
+  </div>
+  <div class="featured-products">
+    <div class="section-header">
+      <h2>SPECIAL OFFERS</h2>
+      <div class="category-tabs">
+        <button [class.active]="activeTab === 'all'" (click)="setActiveTab('all')">All</button>
+        <button [class.active]="activeTab === 'grocery'" (click)="setActiveTab('grocery')">Grocery</button>
+        <button [class.active]="activeTab === 'daily'" (click)="setActiveTab('daily')">Daily Needs</button>
+        <button [class.active]="activeTab === 'shoes'" (click)="setActiveTab('shoes')">Shoes</button>
       </div>
-  
-      <!-- Women's Category -->
-      <div class="category-card women">
-        <div class="category-content">
-          <h2>WOMEN'S<br>FASHION</h2>
-          <p>New & Fresh collection<br>arrival in believe store</p>
-          <button mat-raised-button color="accent" (click)="navigateToCategory('women')">
-            SHOP NOW
-          </button>
+    </div>
+
+    <div class="products-grid">
+      <!-- Grocery Products -->
+      <div class="product-card" *ngFor="let product of filteredProducts">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+          <div class="discount-badge" *ngIf="product.discount">
+            -{{product.discount}}% OFF
+          </div>
+          <div class="product-actions">
+            <button class="action-btn">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            <button class="action-btn">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="action-btn">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>{{product.name}}</h3>
+          <div class="price">
+            <span class="current-price">${{product.currentPrice}}</span>
+            <span class="original-price" *ngIf="product.originalPrice">${{product.originalPrice}}</span>
+          </div>
+          <div class="rating">
+            <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
+            <span>({{product.reviews}} reviews)</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

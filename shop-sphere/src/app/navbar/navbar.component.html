@@ -1,18 +1,22 @@
 <mat-toolbar class="navbar">
-    <div class="navbar-brand">
-      <a routerLink="/">
-        <img src="brandlogo.jpeg" alt="ShopSphere" class="logo">
-        <!-- <span class="tagline">Everything You Need, All in One Sphere.</span> -->
-      </a>
-    </div>
-  
-    <div class="navbar-links">
+  <div class="navbar-brand">
+    <a routerLink="/">
+      <img src="brandlogo.jpeg" alt="ShopSphere" class="logo">
+    </a>
+  </div>
+
+  <button mat-icon-button class="menu-toggle" (click)="toggleMenu()">
+    <mat-icon>{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
+  </button>
+
+  <div class="navbar-content" [class.show]="isMenuOpen">
+    <nav class="navbar-links">
       <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
       <a mat-button routerLink="/products" routerLinkActive="active">Products</a>
       <a mat-button routerLink="/categories" routerLinkActive="active">Categories</a>
       <a mat-button routerLink="/orders" routerLinkActive="active">My Orders</a>
-    </div>
-  
+    </nav>
+
     <div class="navbar-actions">
       <button mat-icon-button class="search-btn">
         <mat-icon>search</mat-icon>
@@ -23,4 +27,6 @@
       <a mat-button routerLink="/login">Login</a>
       <a mat-raised-button color="primary" routerLink="/register">Register</a>
     </div>
-  </mat-toolbar>
+  </div>
+</mat-toolbar>
+
