@@ -1,7 +1,31 @@
 <div class="products-container">
-    <h1>{{category | titlecase}} Products</h1>
-    <div class="products-grid">
-      <!-- Product grid will be implemented here -->
-      <p>Products for {{category}} category will be displayed here</p>
+  <div class="category-header">
+    <h1>{{category === 'all' ? 'All Products' : (category | titlecase) + ' Products'}}</h1>
+    <div class="category-filters">
+      <button mat-button *ngFor="let cat of categories" 
+              [class.active]="category === cat"
+              (click)="category = cat; filterProducts()">
+        {{cat | titlecase}}
+      </button>
     </div>
   </div>
+
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts" (click)="openProductDetails(product)">
+      <div class="product-image">
+        <img [src]="product.images[0]" [alt]="product.name">
+      </div>
+      <div class="product-info">
+        <h3>{{product.name}}</h3>
+        <div class="price">₹{{product.price}}</div>
+        <div class="rating">
+          <mat-icon *ngFor="let star of [1,2,3,4,5]" 
+                    [class.filled]="star <= product.rating">
+            star
+          </mat-icon>
+          <span>({{product.reviews}})</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
