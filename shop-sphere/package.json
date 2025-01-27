@@ -20,9 +20,14 @@
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5",
     "rxjs": "~7.8.0",
     "swiper": "^11.0.5",
     "tslib": "^2.3.0",
+    "twilio": "^5.4.2",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
