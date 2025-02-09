@@ -4,13 +4,21 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
+import { FAQComponent } from './faq/faq.component';
+import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'new-arrivals', component: NewArrivalsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'privacy', component: PrivacyPolicyComponent },
+  { path: 'terms', component: TermsOfServiceComponent },
+  { path: 'faq', component: FAQComponent },
   { path: '**', redirectTo: '' }
 ];
 

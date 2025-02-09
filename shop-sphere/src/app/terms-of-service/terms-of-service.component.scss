@@ -1,0 +1,56 @@
+.terms-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .terms-card {
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  mat-card-header {
+    margin-bottom: 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0;
+  }
+  
+  h2 {
+    color: #2196f3;
+    margin: 1.5rem 0 1rem;
+  }
+  
+  section {
+    margin: 2rem 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  
+    li {
+      margin: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+  
+      &:before {
+        content: "•";
+        color: #2196f3;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+  
+  mat-divider {
+    margin: 2rem 0;
+  }
+  
+  p {
+    line-height: 1.6;
+    color: #666;
+  }

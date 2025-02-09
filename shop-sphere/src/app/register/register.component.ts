@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,28 +10,41 @@ import { Router } from '@angular/router';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-  name: string = '';
-  email: string = '';
-  phone: string = '';
-  password: string = '';
+  registerForm: FormGroup;
+  hidePassword = true;
+  hideConfirmPassword = true;
+  passwordStrength = 0;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router) {
+    this.registerForm = this.fb.group({
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', [Validators.required]],
+      terms: [false, [Validators.requiredTrue]]
+    }, { validator: this.passwordMatchValidator });
+  }
 
-  onRegister() {
-    const user = {
-      name: this.name,
-      email: this.email,
-      phone: this.phone,
-      password: this.password,
-    };
+  passwordMatchValidator(g: FormGroup) {
+    return g.get('password')?.value === g.get('confirmPassword')?.value
+      ? null : { mismatch: true };
+  }
 
-    this.http.post('/api/register', user).subscribe(
-      (response: any) => {
-        this.router.navigate(['/login']);
-      },
-      (error) => {
-        console.error('Failed to register', error);
-      }
-    );
+  checkPasswordStrength(password: string) {
+    let strength = 0;
+    if (password.length >= 8) strength++;
+    if (password.match(/[A-Z]/)) strength++;
+    if (password.match(/[a-z]/)) strength++;
+    if (password.match(/[0-9]/)) strength++;
+    if (password.match(/[^A-Za-z0-9]/)) strength++;
+    this.passwordStrength = strength;
+  }
+
+  onSubmit() {
+    if (this.registerForm.valid) {
+      console.log('Form submitted', this.registerForm.value);
+      // Add your registration logic here
+    }
   }
 }
