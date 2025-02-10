@@ -1,0 +1,94 @@
+<div class="returns-container">
+    <mat-card class="returns-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h1><span class="gradient-text">Returns & Exchanges</span></h1>
+        </mat-card-title>
+        <mat-card-subtitle>Hassle-Free Returns within 14 Days</mat-card-subtitle>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <section class="return-process">
+          <h2>How to Return an Item</h2>
+          <div class="steps-grid">
+            <mat-card class="step-card" *ngFor="let step of returnSteps; let i = index">
+              <div class="step-number">{{i + 1}}</div>
+              <mat-icon class="step-icon">{{step.icon}}</mat-icon>
+              <h3>{{step.title}}</h3>
+              <p>{{step.description}}</p>
+            </mat-card>
+          </div>
+        </section>
+  
+        <mat-divider></mat-divider>
+  
+        <section class="return-policy">
+          <h2>Return Policy</h2>
+          <div class="policy-grid">
+            <div class="policy-item">
+              <mat-icon>schedule</mat-icon>
+              <h3>Return Window</h3>
+              <p>Items must be returned within 14 days of delivery</p>
+            </div>
+            <div class="policy-item">
+              <mat-icon>verified</mat-icon>
+              <h3>Item Condition</h3>
+              <p>Must be unused with original tags and packaging</p>
+            </div>
+            <div class="policy-item">
+              <mat-icon>payments</mat-icon>
+              <h3>Refund Process</h3>
+              <p>Processed within 5-7 business days after receipt</p>
+            </div>
+            <div class="policy-item">
+              <mat-icon>swap_horiz</mat-icon>
+              <h3>Exchanges</h3>
+              <p>Available for size/color variations if in stock</p>
+            </div>
+          </div>
+        </section>
+  
+        <mat-divider></mat-divider>
+  
+        <section class="return-details">
+          <h2>Important Information</h2>
+          <ul>
+            <li>Refunds will be issued to the original payment method</li>
+            <li>Shipping costs are non-refundable unless the item is defective</li>
+            <li>Some items are not eligible for return (see exclusions below)</li>
+            <li>International returns may have different processing times</li>
+          </ul>
+  
+          <h2>Return Exclusions</h2>
+          <ul>
+            <li>Personal care items and undergarments</li>
+            <li>Customized or personalized items</li>
+            <li>Items marked as final sale</li>
+            <li>Items without original tags or packaging</li>
+          </ul>
+        </section>
+  
+        <mat-divider></mat-divider>
+  
+        <section class="start-return">
+          <h2>Ready to Return?</h2>
+          <p>Start your return process now by clicking the button below</p>
+          <button mat-raised-button color="primary" class="return-button" routerLink="/account/returns">
+            Start a Return
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+          <p class="help-text">Need assistance? Contact our support team</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <mat-icon>email</mat-icon>
+              <span>returns&#64;Shopsphere.com</span>
+            </div>
+            <div class="contact-item">
+              <mat-icon>phone</mat-icon>
+              <span>+91 905-949-6258</span>
+            </div>
+          </div>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </div>

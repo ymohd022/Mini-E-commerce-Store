@@ -16,6 +16,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +33,9 @@ import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.com
 import { FAQComponent } from './faq/faq.component';
 import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
 import { SearchOverlayComponent } from './search-overlay/search-overlay.component';
+import { ShippingInfoComponent } from './shipping-info/shipping-info.component';
+import { ReturnsExchangesComponent } from './returns-exchanges/returns-exchanges.component';
+import { TrackOrderComponent } from './track-order/track-order.component';
 
 // Register Swiper custom elements
 register();
@@ -50,6 +55,9 @@ register();
     FAQComponent,
     NewArrivalsComponent,
     SearchOverlayComponent,
+    ShippingInfoComponent,
+    ReturnsExchangesComponent,
+    TrackOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +76,9 @@ register();
     MatInputModule,
     ReactiveFormsModule,
     MatDividerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [
     provideClientHydration(),

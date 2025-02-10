@@ -1,0 +1,64 @@
+<div class="shipping-container">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h1><span class="gradient-text">Shipping Information</span></h1>
+        </mat-card-title>
+        <mat-card-subtitle>Fast & Reliable Shipping Across Multiple Locations</mat-card-subtitle>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <section class="shipping-methods">
+          <div class="method-grid">
+            <mat-card class="method-card" *ngFor="let method of shippingMethods">
+              <mat-icon class="method-icon">{{method.icon}}</mat-icon>
+              <h3>{{method.title}}</h3>
+              <p class="delivery-time">{{method.time}}</p>
+              <p class="cost">{{method.cost}}</p>
+            </mat-card>
+          </div>
+        </section>
+  
+        <mat-divider></mat-divider>
+  
+        <section class="shipping-details">
+          <h2>Free Shipping</h2>
+          <p>We offer free standard shipping on all orders above ₹999 within India. International shipping charges are calculated at checkout based on location and package weight.</p>
+  
+          <h2>Delivery Areas</h2>
+          <p>We currently deliver to all major cities in India and select international locations. Remote areas might require additional delivery time.</p>
+  
+          <h2>Order Tracking</h2>
+          <p>Once your order is shipped, you'll receive a tracking number via email to monitor your delivery status. You can also track your order through your account dashboard.</p>
+  
+          <h2>Shipping Restrictions</h2>
+          <ul>
+            <li>Some items may not be eligible for express shipping due to size or weight restrictions</li>
+            <li>International shipping is not available for certain products</li>
+            <li>Additional customs charges may apply for international orders</li>
+          </ul>
+        </section>
+  
+        <mat-divider></mat-divider>
+  
+        <section class="contact-support">
+          <h2>Need Help?</h2>
+          <p>Our customer service team is available to assist you with any shipping-related queries.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <mat-icon>email</mat-icon>
+              <span>support&#64;Shopsphere.com</span>
+            </div>
+            <div class="contact-item">
+              <mat-icon>phone</mat-icon>
+              <span>+91 905-949-6258</span>
+            </div>
+            <div class="contact-item">
+              <mat-icon>schedule</mat-icon>
+              <span>Monday - Friday, 9:00 AM - 6:00 PM IST</span>
+            </div>
+          </div>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </div>

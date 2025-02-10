@@ -1,0 +1,207 @@
+.track-order-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .track-order-card {
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+    mat-card-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 2rem;
+  
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        
+        .gradient-text {
+          background: linear-gradient(135deg, #2196f3, #9c27b0);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          font-weight: 700;
+        }
+      }
+  
+      mat-card-subtitle {
+        font-size: 1.1rem;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+  
+  .tracking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+  
+    mat-form-field {
+      width: 100%;
+  
+      mat-icon {
+        color: rgba(0, 0, 0, 0.54);
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  
+  .track-button {
+    padding: 1rem;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #2196f3, #9c27b0);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease;
+  
+    &:hover:not([disabled]) {
+      transform: translateY(-2px);
+    }
+  
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  
+    mat-icon {
+      font-size: 1.2rem;
+    }
+  }
+  
+  .tracking-partners {
+    margin: 2rem 0;
+    text-align: center;
+  
+    h2 {
+      color: #2196f3;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .partner-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+  
+    .partner-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      min-width: 120px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.02);
+      transition: transform 0.3s ease;
+  
+      &:hover {
+        transform: translateY(-5px);
+      }
+  
+      mat-icon {
+        font-size: 2rem;
+        height: 2rem;
+        width: 2rem;
+        color: #2196f3;
+      }
+  
+      span {
+        font-weight: 500;
+        color: #333;
+      }
+    }
+  }
+  
+  .help-section {
+    margin: 2rem 0;
+    text-align: center;
+  
+    h2 {
+      color: #2196f3;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  
+    p {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+  
+    .contact-options {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+  
+      .contact-button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        color: #2196f3;
+        border-color: #2196f3;
+        transition: all 0.3s ease;
+  
+        &:hover {
+          background: rgba(33, 150, 243, 0.1);
+        }
+  
+        mat-icon {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  
+    .support-hours {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: #666;
+  
+      mat-icon {
+        color: #2196f3;
+      }
+    }
+  }
+  
+  mat-divider {
+    margin: 2rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    .track-order-container {
+      padding: 1rem;
+    }
+  
+    .track-order-card {
+      padding: 1.5rem;
+    }
+  
+    mat-card-header h1 {
+      font-size: 2rem;
+    }
+  
+    .contact-options {
+      flex-direction: column;
+      
+      .contact-button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }

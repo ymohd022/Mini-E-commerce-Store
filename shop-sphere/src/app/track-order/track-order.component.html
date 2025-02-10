@@ -1,0 +1,80 @@
+<div class="track-order-container">
+    <mat-card class="track-order-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h1><span class="gradient-text">Track Your Order</span></h1>
+        </mat-card-title>
+        <mat-card-subtitle>Enter your order details to check the status</mat-card-subtitle>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <form [formGroup]="trackingForm" (ngSubmit)="onSubmit()" class="tracking-form">
+          <mat-form-field appearance="outline">
+            <mat-label>Order ID</mat-label>
+            <input matInput formControlName="orderId" placeholder="Enter your Order ID">
+            <mat-icon matPrefix>receipt</mat-icon>
+            <mat-error *ngIf="trackingForm.get('orderId')?.errors?.['required']">
+              Order ID is required
+            </mat-error>
+            <mat-error *ngIf="trackingForm.get('orderId')?.errors?.['minlength']">
+              Please enter a valid Order ID
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Email Address</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="Enter your email">
+            <mat-icon matPrefix>email</mat-icon>
+            <mat-error *ngIf="trackingForm.get('email')?.errors?.['required']">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="trackingForm.get('email')?.errors?.['email']">
+              Please enter a valid email
+            </mat-error>
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" type="submit" class="track-button" [disabled]="!trackingForm.valid">
+            Track Order
+            <mat-icon>search</mat-icon>
+          </button>
+        </form>
+  
+        <mat-divider></mat-divider>
+  
+        <section class="tracking-partners">
+          <h2>Our Shipping Partners</h2>
+          <div class="partner-grid">
+            <div class="partner-card" *ngFor="let partner of trackingPartners">
+              <mat-icon>{{partner.icon}}</mat-icon>
+              <span>{{partner.name}}</span>
+            </div>
+          </div>
+        </section>
+  
+        <mat-divider></mat-divider>
+  
+        <section class="help-section">
+          <h2>Need Assistance?</h2>
+          <p>Can't find your order or need help tracking it?</p>
+          <div class="contact-options">
+            <a mat-stroked-button href="mailto:support@hopsphere.com" class="contact-button">
+              <mat-icon>email</mat-icon>
+              Email Support
+            </a>
+            <a mat-stroked-button href="tel:+919059496258" class="contact-button">
+              <mat-icon>phone</mat-icon>
+              Call Us
+            </a>
+            <a mat-stroked-button routerLink="/faq" class="contact-button">
+              <mat-icon>help</mat-icon>
+              View FAQ
+            </a>
+          </div>
+          <div class="support-hours">
+            <mat-icon>schedule</mat-icon>
+            <span>Support Hours: Monday - Friday, 9:00 AM - 6:00 PM IST</span>
+          </div>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </div>

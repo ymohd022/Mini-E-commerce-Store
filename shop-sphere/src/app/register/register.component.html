@@ -42,6 +42,28 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phone" placeholder="Enter your phone number">
+          <mat-icon matPrefix>phone</mat-icon>
+          <button mat-button matSuffix (click)="sendOTP()" [disabled]="isPhoneVerified">
+            {{ isPhoneVerified ? 'Verified' : 'Send OTP' }}
+          </button>
+          <mat-error *ngIf="registerForm.get('phone')?.errors?.['required']">
+            Phone number is required
+          </mat-error>
+          <mat-error *ngIf="registerForm.get('phone')?.errors?.['pattern']">
+            Please enter a valid phone number
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" *ngIf="!isPhoneVerified">
+          <mat-label>OTP</mat-label>
+          <input matInput #otp placeholder="Enter OTP">
+          <mat-icon matPrefix>lock</mat-icon>
+          <button mat-button matSuffix (click)="verifyOTP(otp.value)">Verify</button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
           <input matInput [type]="hidePassword ? 'password' : 'text'" 
                  formControlName="password" 
@@ -95,25 +117,10 @@
           </mat-error>
         </div>
 
-        <button mat-raised-button color="primary" type="submit" class="register-button" [disabled]="!registerForm.valid">
+        <button mat-raised-button color="primary" type="submit" class="register-button" 
+                [disabled]="!registerForm.valid || !isPhoneVerified">
           Create Account
         </button>
-
-        <div class="divider">
-          <span>Or sign up with</span>
-        </div>
-
-        <div class="social-login">
-          <button mat-mini-fab color="default" type="button" class="social-button">
-            <mat-icon svgIcon="google"></mat-icon>
-          </button>
-          <button mat-mini-fab color="default" type="button" class="social-button">
-            <mat-icon svgIcon="facebook"></mat-icon>
-          </button>
-          <button mat-mini-fab color="default" type="button" class="social-button">
-            <mat-icon svgIcon="apple"></mat-icon>
-          </button>
-        </div>
 
         <div class="login-link">
           <span>Already have an account?</span>

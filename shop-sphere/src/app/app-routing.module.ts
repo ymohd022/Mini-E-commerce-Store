@@ -8,6 +8,9 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
 import { FAQComponent } from './faq/faq.component';
 import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
+import { ShippingInfoComponent } from './shipping-info/shipping-info.component';
+import { ReturnsExchangesComponent } from './returns-exchanges/returns-exchanges.component';
+import { TrackOrderComponent } from './track-order/track-order.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +22,9 @@ const routes: Routes = [
   { path: 'privacy', component: PrivacyPolicyComponent },
   { path: 'terms', component: TermsOfServiceComponent },
   { path: 'faq', component: FAQComponent },
+  { path: 'shipping', component: ShippingInfoComponent },
+  { path: 'returns', component: ReturnsExchangesComponent },
+  { path: 'track-order', component: TrackOrderComponent },
   { path: '**', redirectTo: '' }
 ];
 
