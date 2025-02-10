@@ -30,6 +30,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
 import { FAQComponent } from './faq/faq.component';
 import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
+import { SearchOverlayComponent } from './search-overlay/search-overlay.component';
 
 // Register Swiper custom elements
 register();
@@ -48,6 +49,7 @@ register();
     TermsOfServiceComponent,
     FAQComponent,
     NewArrivalsComponent,
+    SearchOverlayComponent,
   ],
   imports: [
     BrowserModule,

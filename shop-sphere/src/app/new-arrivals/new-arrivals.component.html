@@ -1,7 +1,36 @@
-<!-- new-arrivals.component.html -->
 <section class="new-arrivals">
-    <div class="section-header">
-      <h2 class="gradient-text">New & Fresh Collections</h2>
-      <p class="subtitle">Arrival in Believe Store</p>
+  <div class="container">
+    <div class="header">
+      <div class="title-section">
+        <h1>NEW ARRIVALS</h1>
+        <span class="product-count">327</span>
+      </div>
+      <div class="sort-section">
+        <span>SORT BY</span>
+        <mat-form-field appearance="outline">
+          <mat-select value="popularity">
+            <mat-option *ngFor="let option of sortOptions" [value]="option.value">
+              {{option.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
-  </section>
+
+    <div class="products-grid">
+      <mat-card class="product-card" *ngFor="let product of products">
+        <div class="image-container">
+          <img mat-card-image [src]="product.image" [alt]="product.name">
+          <span class="new-tag" *ngIf="product.isNew">NEW IN</span>
+          <button mat-icon-button class="favorite-button">
+            <mat-icon>favorite_border</mat-icon>
+          </button>
+        </div>
+        <mat-card-content>
+          <h3>{{product.name}}</h3>
+          <p class="price">₹{{product.price}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<div class="search-overlay" [@overlayAnimation] (click)="onClose()">
+    <div class="search-container" (click)="$event.stopPropagation()">
+      <div class="search-header">
+        <div class="search-input-container">
+          <mat-icon class="search-icon">search</mat-icon>
+          <input 
+            type="text" 
+            [(ngModel)]="searchQuery"
+            placeholder="Search for products..."
+            (keyup.enter)="search()"
+            autofocus>
+          <button 
+            mat-icon-button 
+            *ngIf="searchQuery" 
+            (click)="clearSearch()"
+            class="clear-button">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <button mat-icon-button class="close-button" (click)="onClose()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+  
+      <div class="search-content">
+        <div class="recent-searches" *ngIf="!searchQuery">
+          <h3>Recent Searches</h3>
+          <div class="recent-search-items">
+            <button mat-stroked-button *ngFor="let search of recentSearches">
+              <mat-icon>history</mat-icon>
+              {{search}}
+            </button>
+          </div>
+        </div>
+  
+        <div class="trending-searches" *ngIf="!searchQuery">
+          <h3>Popular Searches</h3>
+          <div class="trending-tags">
+            <span class="trend-tag">#SummerCollection</span>
+            <span class="trend-tag">#NewArrivals</span>
+            <span class="trend-tag">#Sustainable</span>
+            <span class="trend-tag">#Accessories</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

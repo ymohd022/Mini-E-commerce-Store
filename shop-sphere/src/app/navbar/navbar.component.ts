@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   isMenuOpen = false;
+  isSearchOpen = false;
 
   constructor(private router: Router) {}
 
@@ -18,9 +19,12 @@ export class NavbarComponent {
       this.isMenuOpen = false;
     }
   }
-
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  toggleSearch() {
+    this.isSearchOpen = !this.isSearchOpen;
   }
 
   navigateToCart() {

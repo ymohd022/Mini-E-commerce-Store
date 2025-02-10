@@ -18,7 +18,7 @@
     </nav>
 
     <div class="navbar-actions">
-      <button mat-icon-button class="search-btn">
+      <button mat-icon-button class="search-btn" (click)="toggleSearch()">
         <mat-icon>search</mat-icon>
       </button>
       <button mat-icon-button class="cart-btn" (click)="navigateToCart()">
@@ -28,5 +28,6 @@
       <a mat-raised-button color="primary" routerLink="/register">Register</a>
     </div>
   </div>
-</mat-toolbar>
 
+  <app-search-overlay *ngIf="isSearchOpen" (close)="toggleSearch()"></app-search-overlay>
+</mat-toolbar>
