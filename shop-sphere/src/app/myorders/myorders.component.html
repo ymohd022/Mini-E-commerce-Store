@@ -1,0 +1,72 @@
+<div class="orders-container">
+    <div class="orders-header">
+      <h1>My Orders</h1>
+      <mat-button-toggle-group [(ngModel)]="activeTab">
+        <mat-button-toggle value="active">Active Orders</mat-button-toggle>
+        <mat-button-toggle value="delivered">Order History</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  
+    <div class="orders-grid">
+      <mat-card class="order-card" *ngFor="let order of getFilteredOrders()">
+        <mat-card-header>
+          <mat-card-title>Order #{{order.id}}</mat-card-title>
+          <mat-card-subtitle>
+            Ordered on {{order.orderDate | date:'medium'}}
+          </mat-card-subtitle>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <div class="order-status">
+            <div class="status-header">
+              <span class="status-label">Status:</span>
+              <mat-chip [color]="getStatusColor(order.status)" selected>
+                {{order.status | titlecase}}
+              </mat-chip>
+            </div>
+            <mat-progress-bar
+              [color]="getStatusColor(order.status)"
+              [value]="getProgressValue(order.status)"
+            ></mat-progress-bar>
+          </div>
+  
+          <div class="order-items">
+            <div class="item" *ngFor="let item of order.items">
+              <img [src]="item.product.images[0]" [alt]="item.product.name">
+              <div class="item-details">
+                <h3>{{item.product.name}}</h3>
+                <p>Quantity: {{item.quantity}}</p>
+                <p>₹{{item.product.price * item.quantity}}</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="order-info">
+            <div class="info-section">
+              <h3>Delivery Address</h3>
+              <p>{{order.shippingAddress.street}}</p>
+              <p>{{order.shippingAddress.city}}, {{order.shippingAddress.state}}</p>
+              <p>{{order.shippingAddress.zipCode}}</p>
+            </div>
+  
+            <div class="info-section" *ngIf="order.trackingNumber">
+              <h3>Tracking Number</h3>
+              <p>{{order.trackingNumber}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+  
+        <mat-card-actions>
+          <button mat-button color="primary" *ngIf="order.status !== 'delivered' && order.status !== 'cancelled'">
+            Track Order
+          </button>
+          <button mat-button color="warn" *ngIf="order.status === 'pending'">
+            Cancel Order
+          </button>
+          <button mat-button *ngIf="order.status === 'delivered'">
+            Buy Again
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>

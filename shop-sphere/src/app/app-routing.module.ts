@@ -11,6 +11,8 @@ import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
 import { ShippingInfoComponent } from './shipping-info/shipping-info.component';
 import { ReturnsExchangesComponent } from './returns-exchanges/returns-exchanges.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
+import { CartComponent } from './cart/cart.component';
+import { MyordersComponent } from './myorders/myorders.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'shipping', component: ShippingInfoComponent },
   { path: 'returns', component: ReturnsExchangesComponent },
   { path: 'track-order', component: TrackOrderComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'orders', component: MyordersComponent },
   { path: '**', redirectTo: '' }
 ];
 

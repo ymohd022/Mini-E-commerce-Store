@@ -12,3 +12,5 @@ export interface Product {
     reviews: number;
     brand: string;
   }
+
+  
